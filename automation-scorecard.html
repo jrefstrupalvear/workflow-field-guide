@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Compare automation opportunities | Workflow Field Guide</title>
+  <meta name="description" content="Compare the staff hours two automation pilots could recover each week, including time spent reviewing exceptions.">
+  <link rel="canonical" href="https://jrefstrupalvear.github.io/workflow-field-guide/automation-scorecard.html">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f6f5ef; color: #172c25; font: 17px/1.55 system-ui, sans-serif; }
+    main { max-width: 55rem; margin: auto; padding: 3rem 1.25rem; }
+    h1, h2 { font-family: Georgia, serif; line-height: 1.1; }
+    h1 { margin: 0 0 .6rem; font-size: clamp(2.4rem, 6vw, 4.1rem); }
+    h2 { margin-top: 2.5rem; }
+    .candidates { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr)); gap: 1.25rem; }
+    fieldset { margin: 0; min-inline-size: 0; padding: 1.15rem; border: 1px solid #9bb0a4; border-radius: .45rem; }
+    legend { padding: 0 .35rem; font-weight: 700; }
+    label { display: grid; grid-template-columns: minmax(0, 1fr) 5rem; align-items: center; gap: .75rem; margin-bottom: .8rem; }
+    input { width: 100%; padding: .35rem .4rem; border: 1px solid #778b81; border-radius: .25rem; background: #fff; color: inherit; font: inherit; }
+    input:focus-visible { outline: 3px solid #38644f; outline-offset: 2px; }
+    input:invalid { border: 2px solid #a22e24; }
+    a { color: #21573f; text-underline-offset: .18em; }
+    dl { display: grid; grid-template-columns: 1fr auto; gap: .25rem; margin: .9rem 0 0; }
+    dd { margin: 0; }
+    .net { font-weight: 700; }
+    #comparison { margin-top: 1.25rem; padding: .8rem 1rem; background: #e6eee2; border-left: 4px solid #38644f; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Compare automation opportunities</h1>
+    <p>Estimate how many staff hours two workflows could recover each week. Replace the sample values with numbers from the <a href="workflow-observation.html">workflow observation sheet</a>.</p>
+    <form id="scorecard">
+      <div class="candidates">
+        <fieldset>
+          <legend>Workflow A</legend>
+          <label>Items handled per week <input name="volume" type="number" min="0" step="1" required value="80"></label>
+          <label>Staff minutes per item <input name="minutes" type="number" min="0" step="any" required value="6"></label>
+          <label>Share of staff time the pilot removes (%) <input name="share" type="number" min="0" max="100" step="any" required value="50"></label>
+          <label>Added review minutes per week <input name="review" type="number" min="0" step="any" required value="60"></label>
+          <dl>
+            <dt>Baseline staff time</dt><dd data-baseline>8 h</dd>
+            <dt>Gross hours recovered</dt><dd data-gross>4 h</dd>
+            <dt class="net">Net hours recovered</dt><dd class="net" data-net>3 h</dd>
+          </dl>
+        </fieldset>
+        <fieldset>
+          <legend>Workflow B</legend>
+          <label>Items handled per week <input name="volume" type="number" min="0" step="1" required value="30"></label>
+          <label>Staff minutes per item <input name="minutes" type="number" min="0" step="any" required value="12"></label>
+          <label>Share of staff time the pilot removes (%) <input name="share" type="number" min="0" max="100" step="any" required value="75"></label>
+          <label>Added review minutes per week <input name="review" type="number" min="0" step="any" required value="120"></label>
+          <dl>
+            <dt>Baseline staff time</dt><dd data-baseline>6 h</dd>
+            <dt>Gross hours recovered</dt><dd data-gross>4.5 h</dd>
+            <dt class="net">Net hours recovered</dt><dd class="net" data-net>2.5 h</dd>
+          </dl>
+        </fieldset>
+      </div>
+      <p id="comparison" role="status">Workflow A recovers 30 more staff minutes per week.</p>
+      <noscript><p>The sample results are shown above. Enable JavaScript to recalculate with your numbers, or use the formula below.</p></noscript>
+    </form>
+    <h2>How to read the result</h2>
+    <p><strong>Net weekly hours recovered</strong> = (weekly items × staff minutes per item × removable share − added weekly review minutes) ÷ 60. Use the share of staff time the pilot could remove, expressed as a decimal in this formula.</p>
+    <p>Estimate the share from active minutes on cases the rule can handle. For example, if those cases account for 12 of 36 minutes observed, start with an upper estimate of 33%. Reduce it for any original steps people would still perform. Enter new oversight time in the review field.</p>
+    <p>Negative net hours mean the pilot adds work. If both estimates are close, test a small batch and compare incorrect outcomes and exception handling before committing.</p>
+    <p><a href="./#find-candidates">How to find workflows worth comparing</a></p>
+  </main>
+  <script>
+    const scorecard = document.querySelector('#scorecard');
+    const candidates = [...scorecard.querySelectorAll('fieldset')];
+    const comparison = document.querySelector('#comparison');
+    const numberFormat = new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 });
+
+    function showCandidate(candidate) {
+      const fields = [...candidate.querySelectorAll('input')];
+      const [volume, minutes, share, review] = fields.map(field => field.valueAsNumber);
+      const baseline = volume * minutes;
+      const gross = baseline * (share / 100);
+      const net = gross - review;
+      const valid = fields.every(field => field.validity.valid) && Number.isFinite(net);
+
+      [['baseline', baseline], ['gross', gross], ['net', net]].forEach(([key, value]) => {
+        candidate.querySelector(`[data-${key}]`).textContent = valid
+          ? `${numberFormat.format(value / 60)} h`
+          : '—';
+      });
+      return valid ? net : null;
+    }
+
+    function update() {
+      const [a, b] = candidates.map(showCandidate);
+      if (a === null || b === null) {
+        comparison.textContent = 'Enter a whole number of items, nonnegative times, and a share between 0% and 100%.';
+        return;
+      }
+      if (Math.max(a, b) <= 0) {
+        comparison.textContent = 'Both pilots break even on staff time or add work.';
+        return;
+      }
+      const difference = Math.round(Math.abs(a - b));
+      if (difference === 0) {
+        comparison.textContent = 'The two pilots are within one staff minute per week.';
+        return;
+      }
+      const leader = a > b ? 'Workflow A' : 'Workflow B';
+      const unit = difference === 1 ? 'minute' : 'minutes';
+      comparison.textContent = `${leader} recovers ${numberFormat.format(difference)} more staff ${unit} per week.`;
+    }
+
+    scorecard.addEventListener('input', update);
+    scorecard.addEventListener('submit', event => event.preventDefault());
+    update();
+  </script>
+</body>
+</html>

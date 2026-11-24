@@ -2,7 +2,13 @@
 
 Source: [Workflow Field Guide](https://jrefstrupalvear.github.io/workflow-field-guide/)
 
-To identify automation opportunities, follow one recurring task from start to finish. Count how often it happens, time the minutes people actively spend on it, and write down the rule a tool would follow. Subtract the time people would still spend reviewing exceptions. Pilot the task with the strongest measurable benefit and a clear way to catch mistakes.
+To identify automation opportunities, review completed cases in one team’s queue and look for repeated manual steps, handoffs, or rework. For each candidate, measure the active staff time and write down the rule an automation would follow. Subtract the time people would spend reviewing exceptions. Pilot the task with the strongest measurable benefit and a clear way to catch mistakes.
+
+## Where should we look if we don't have a list of tasks yet?
+
+Start with one team's queue. Take consecutive completed cases from the same period, including ones that went smoothly. For each case, record the sequence of handoffs, whether a step repeated, and how many minutes someone actively spent on it. If a system records only status changes, ask the person doing the work to time the step. An afternoon between timestamps can include hours when nobody was working on the case.
+
+Suppose you review five support requests. Three went straight to the right owner. Two followed the same path: *intake → billing → intake → support*. The second visit to intake took four staff minutes in each case. That gives you one candidate to investigate and eight minutes of rework across the five requests. Ask the dispatcher what the two returned requests had in common. If a field already identifies their owner, test that routing rule on a fresh batch and count misroutes. If the information arrives only after a customer replies, moving the ticket faster won't solve the delay.
 
 ## What to look for
 
@@ -39,6 +45,8 @@ One week of work under two proposed pilots
 | Invoice exception routing | 30 cases × 12 min = 6 h | 75% | 2 h | 2.5 h |
 
 Start with reminders if the missing-document list is reliable and both pilots have similar setup costs. The lead is only 30 minutes a week. If reminder review takes over 90 minutes a week, invoice routing frees more time. Check that assumption on a small batch before investing.
+
+[Compare your own workflows with the automation calculator](https://jrefstrupalvear.github.io/workflow-field-guide/automation-scorecard.html). Enter the weekly volume, staff minutes per item, removable share, and added review time for each pilot.
 
 Watch one failure case as well as one ordinary case. If staff send a reminder because two systems disagree about whether a document arrived, fix the status discrepancy first. A faster reminder would amplify the error.
 
