@@ -53,3 +53,5 @@ Watch one failure case as well as one ordinary case. If staff send a reminder be
 ## Choose the first pilot
 
 Pick a workflow with a named owner, measurable volume, and a change you can reverse. Test on a small batch. Check hours recovered, mistakes, and exceptions against the baseline before expanding. If the process has unclear ownership or inconsistent rules, fix those first.
+
+[Use the automation opportunity assessment template](https://jrefstrupalvear.github.io/workflow-field-guide/automation-opportunity-assessment.html) to record the rule, expected benefit, exceptions, and the condition for stopping the pilot.

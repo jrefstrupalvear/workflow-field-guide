@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Automation opportunity assessment template | Workflow Field Guide</title>
+  <meta name="description" content="Record the rule, manual effort, review time, and pilot checks for one automation opportunity. Includes a worked invoice-routing example and a blank template.">
+  <link rel="canonical" href="https://jrefstrupalvear.github.io/workflow-field-guide/automation-opportunity-assessment.html">
+  <link rel="alternate" type="text/markdown" href="automation-opportunity-assessment.md" title="Assessment template in Markdown">
+  <style>
+    body { margin: 0; color: #172c25; background: #f6f5ef; font: 17px/1.6 system-ui, sans-serif; }
+    main { max-width: 48rem; margin: auto; padding: 3rem 1.25rem; }
+    h1, h2 { font-family: Georgia, serif; line-height: 1.12; }
+    h1 { font-size: clamp(2.4rem, 6vw, 3.8rem); }
+    h2 { margin-top: 2rem; }
+    a { color: #21573f; text-underline-offset: .18em; }
+    dl { display: grid; grid-template-columns: minmax(8rem, 1fr) minmax(0, 2fr); gap: .5rem 1.25rem; }
+    dt { font-weight: 700; }
+    dd { margin: 0; padding-bottom: .5rem; border-bottom: 1px solid #b7c6be; }
+    @media (max-width: 35rem) { dl { grid-template-columns: 1fr; } }
+    @media print { body { background: #fff; } main { padding: 0; } dt, dd { break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Automation opportunity assessment template</h1>
+    <p>Record one repeated task, the rule the proposed automation would follow, and the people who handle exceptions. Estimate the weekly staff time it could recover, then write down what would make you proceed, change the rule, or stop the pilot.</p>
+    <p><a href="automation-opportunity-assessment.md">Copy the assessment template in Markdown</a></p>
+
+    <h2>What to record before choosing a pilot</h2>
+    <dl>
+      <dt>Task and owner</dt><dd>Who owns the process? What event starts the task, and what output ends it?</dd>
+      <dt>Baseline</dt><dd>How many items arrive each week? How many active staff minutes does each item take? Record waiting time separately.</dd>
+      <dt>Rule and exceptions</dt><dd>What information is available when the decision happens? Which cases can follow one documented rule? Who reviews the rest?</dd>
+      <dt>Recoverable time</dt><dd>Estimate the minutes of original work the automation would remove. Subtract any new time spent checking the automation or fixing its output.</dd>
+      <dt>Quality and risk</dt><dd>Which mistake would matter most? How often does that mistake happen today? How will you detect it and reverse it?</dd>
+      <dt>Pilot decision</dt><dd>Define the batch, a measurable success threshold, and the condition that stops the pilot. Name the person who decides.</dd>
+    </dl>
+
+    <h2>Worked example with hypothetical invoice exceptions</h2>
+    <p>A team handles 30 invoice exceptions per week at 12 staff minutes per case. It estimates that a routing rule could remove 75% of that work. The baseline is 360 minutes. The rule could remove 270 minutes, with 120 minutes needed for new review. That leaves <strong>150 minutes of staff time recovered per week</strong>.</p>
+    <p>For the pilot, the team compares a week of suggested routes against the normal review. It advances if staff would recover at least 60 minutes without sending an invoice to the wrong reviewer. A wrong route triggers a review of the rule. Cases with missing or conflicting supplier information go to a human. Payment approval stays with the existing approver.</p>
+
+    <h2>Decide which candidate deserves the first test</h2>
+    <p>Start with the <a href="workflow-observation.html">workflow observation sheet</a> to estimate the baseline and identify repeatable cases. Use the <a href="automation-scorecard.html">automation calculator</a> to compare two candidates. Then choose a task with a clear rule, a measurable benefit, and a way to catch and reverse errors. <a href="./#find-candidates">Read the full guide to finding automation opportunities</a>.</p>
+  </main>
+</body>
+</html>
