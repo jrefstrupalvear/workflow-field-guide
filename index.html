@@ -4,12 +4,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How to Identify Automation Opportunities | Workflow Field Guide</title>
 <meta name="description" content="Find repetitive workflows worth fixing, estimate recoverable hours, and choose a first automation pilot.">
+<link rel="canonical" href="https://jrefstrupalvear.github.io/workflow-field-guide/">
+<link rel="alternate" type="text/markdown" href="automation-opportunities.md" title="Workflow audit in Markdown">
 <style>
 body{margin:0;background:#f6f5ef;color:#172c25;font:18px/1.65 system-ui,sans-serif}main{max-width:730px;margin:auto;padding:64px 24px}h1,h2{font-family:Georgia,serif;line-height:1.12}h1{font-size:clamp(42px,8vw,72px);margin:.3em 0}h2{margin-top:1.6em}aside{background:#e6eee2;padding:16px 24px;border-left:4px solid #38644f}header small{font-weight:700;letter-spacing:.09em;text-transform:uppercase}
 </style>
+<style>
+footer{max-width:730px;margin:0 auto;padding:0 24px 48px}footer a{color:#214d3d}
+.comparison{overflow-x:auto}table{width:100%;font-size:1rem;border-collapse:collapse}caption{text-align:left;margin-bottom:.6rem}th,td{padding:.55rem;text-align:left;vertical-align:top;border-bottom:1px solid #b7c6be}thead{background:#e6eee2}
+</style>
 <main>
 <header><small>Workflow Field Guide</small><h1>How to identify automation opportunities</h1></header>
-<p>Follow one recurring piece of work from intake to completion. Record who touches it, where it waits, and which steps follow a predictable rule. Then estimate the time you can actually recover, including the time people will still spend reviewing exceptions.</p>
+<p>To identify automation opportunities, follow one recurring task from start to finish. Count how often it happens, time the minutes people actively spend on it, and write down the rule a tool would follow. Subtract the time people would still spend reviewing exceptions. Pilot the task with the strongest measurable benefit and a clear way to catch mistakes.</p>
 <h2>What to look for</h2>
 <ol>
 <li><strong>Repeated handling.</strong> Look for copying fields, checking a status, sending reminders, or reconciling the same records across tools.</li>
@@ -24,7 +30,19 @@ body{margin:0;background:#f6f5ef;color:#172c25;font:18px/1.65 system-ui,sans-ser
 <p>Make one row per task. Record the workflow, trigger, owner, weekly volume, active minutes per item, percentage of work the pilot could remove, and added weekly review time. Sample ordinary cases and exceptions before estimating the removable share.</p>
 <p><strong>Net weekly hours recovered</strong> = (weekly volume × active minutes per item × removable share ÷ 60) − added weekly review hours.</p>
 <p>Rank candidates by net hours recovered, then check rule clarity, error impact and setup effort. Pick a task you can pilot with a human review step. Record the same measures again during the pilot so the comparison uses the same units and workflow boundaries.</p>
+<h2>Which task would you automate first?</h2>
+<p>Suppose the same team is choosing between two pilots. These figures are illustrative. The pilot must reduce staff effort without increasing incorrect decisions.</p>
+<div class="comparison"><table>
+<caption>One week of work under two proposed pilots</caption>
+<thead><tr><th scope="col">Candidate</th><th scope="col">Baseline effort</th><th scope="col">Removable share</th><th scope="col">Added review</th><th scope="col">Net hours freed</th></tr></thead>
+<tbody>
+<tr><th scope="row">Missing-document reminders</th><td>80 files × 6 min = 8 h</td><td>50%</td><td>1 h</td><td>3 h</td></tr>
+<tr><th scope="row">Invoice exception routing</th><td>30 cases × 12 min = 6 h</td><td>75%</td><td>2 h</td><td>2.5 h</td></tr>
+</tbody></table></div>
+<p>Start with reminders if the missing-document list is reliable and both pilots have similar setup costs. The lead is only 30 minutes a week. If reminder review takes over 90 minutes a week, invoice routing frees more time. Check that assumption on a small batch before investing.</p>
+<p>Watch one failure case as well as one ordinary case. If staff send a reminder because two systems disagree about whether a document arrived, fix the status discrepancy first. A faster reminder would amplify the error.</p>
 <h2>Choose the first pilot</h2>
 <p>Pick a workflow with a named owner, measurable volume, and a change you can reverse. Test on a small batch. Check hours recovered, mistakes, and exceptions against the baseline before expanding. If the process has unclear ownership or inconsistent rules, fix those first.</p>
 </main>
+<footer><a href="automation-opportunities.md">Read the workflow audit in Markdown</a></footer>
 </html>
