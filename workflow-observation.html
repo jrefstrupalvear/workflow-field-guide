@@ -28,6 +28,7 @@
   <p>For a week, observe consecutive cases across ordinary and busy periods. Ask the worker to walk through one routine case and one that needed help. Count a case once even when it changes hands. Add up each person's active minutes and keep a separate column for time spent waiting. A file can sit overnight and still need only two minutes of work.</p>
   <h2>Six cases from a hypothetical intake desk</h2>
   <p>An intake clerk checks whether a document is missing and whether someone has already contacted the applicant. The proposed rule drafts a reminder only when the checklist is current, the upload is absent and no recent reminder exists.</p>
+  <p><a download href="workflow-observation-example.json">Download the six sample cases (JSON)</a>.</p>
   <table>
     <thead><tr><th scope="col">Case</th><th scope="col">What the clerk found</th><th scope="col">Active minutes</th><th scope="col">Decision</th></tr></thead>
     <tbody>
@@ -40,7 +41,15 @@
     </tbody>
   </table>
   <h2>What the six rows justify</h2>
-  <p>Three of six cases qualify for drafts. Those three used 12 of the 36 staff minutes. Treating half of all minutes as removable would give 18 minutes and overstate the opportunity. If drafting removes all 12 eligible minutes and reviewing each draft adds one minute, the sample saves <strong>9 staff minutes</strong>. A timed pilot will show whether the initial checks can actually be removed.</p>
+  <p>In this sample, 50% of cases qualify for draft reminders. Those cases account for one-third of the staff time. To reproduce the estimate, use the rows above:</p>
+  <ol>
+    <li>Add every case’s active minutes to get 36 staff minutes.</li>
+    <li>Add the minutes for cases A, B and D to get 12 minutes eligible for removal. Divide 12 by 36 to get one-third.</li>
+    <li>If drafting removes all 12 eligible minutes, subtract one new review minute for each of the three drafts. The estimate is <strong>9 staff minutes saved for this batch</strong>.</li>
+  </ol>
+  <p>Using half of all minutes as the removable share would estimate 18 minutes before review. That overstates the eligible effort by six minutes. A timed pilot will show how much of the eligible work can actually be removed.</p>
+  <h2>Which records can measure active staff time?</h2>
+  <p>If your system logs the start and finish of each action, check whether those timestamps cover work the person was actively doing. When your log records only status changes, observe or time the step yourself. Microsoft’s <a href="https://learn.microsoft.com/en-us/power-automate/minit/case-overview-statistics">process mining metric definitions</a> likewise use event duration to calculate active time.</p>
   <p>Start in draft mode. Have the clerk verify each proposed reminder. If a draft asks for a document already received, pause the pilot and inspect how the checklist gets updated. Collect a full week's case mix before projecting these six observations to a month.</p>
   <p><a href="./">Use the guide to compare this opportunity with another pilot.</a></p>
 </main></body>

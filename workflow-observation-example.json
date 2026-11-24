@@ -1,0 +1,13 @@
+{
+  "name": "Six hypothetical intake desk observations",
+  "description": "Illustrative staff effort in minutes. These rows are synthetic and represent one sample batch.",
+  "newReviewMinutesPerDraft": 1,
+  "cases": [
+    {"case": "A", "observation": "Required form missing", "activeMinutes": 4, "decision": "Draft reminder", "eligibleForDraft": true},
+    {"case": "B", "observation": "Required statement missing", "activeMinutes": 5, "decision": "Draft reminder", "eligibleForDraft": true},
+    {"case": "C", "observation": "Upload received, checklist stale", "activeMinutes": 9, "decision": "Reconcile status", "eligibleForDraft": false},
+    {"case": "D", "observation": "Required signature missing", "activeMinutes": 3, "decision": "Draft reminder", "eligibleForDraft": true},
+    {"case": "E", "observation": "Reminder already sent today", "activeMinutes": 6, "decision": "Suppress duplicate", "eligibleForDraft": false},
+    {"case": "F", "observation": "Two checklists disagree", "activeMinutes": 9, "decision": "Ask owner", "eligibleForDraft": false}
+  ]
+}

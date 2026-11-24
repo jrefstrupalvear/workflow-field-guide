@@ -25,7 +25,7 @@ Track staff time separately from loan turnaround. Saving three staff hours says 
 
 ## Run a one-week workflow audit
 
-[Start with the worked observation sheet](https://jrefstrupalvear.github.io/workflow-field-guide/workflow-observation.html) to see which cases qualify. In its six-case example, three follow the same rule, yet those three account for only 12 of 36 staff minutes. Use the minutes spent on eligible cases to estimate the removable share.
+[Start with the worked observation sheet](https://jrefstrupalvear.github.io/workflow-field-guide/workflow-observation.html) to see which cases qualify. Half the cases in its hypothetical sample qualify for a reminder. Those cases account for one-third of the work, or 12 of 36 staff minutes. If the pilot removes those 12 minutes and adds three minutes of review, it recovers nine minutes for the batch. The [sample rows](https://jrefstrupalvear.github.io/workflow-field-guide/workflow-observation-example.json) let you check the estimate.
 
 Make one row per task. Record the workflow, trigger, owner, weekly volume, active minutes per item, percentage of work the pilot could remove, and added weekly review time. Sample ordinary cases and exceptions before estimating the removable share.
 
